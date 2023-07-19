@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Loading.unity
+    guid: 118888af87bc64646a8f5843ad897d24
+  - enabled: 1
+    path: Assets/Scenes/CoinFlip.unity
+    guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/Lobby.unity
+    guid: f700f2d15cba9744f8b687289fc5fc8b
+  m_configObjects: {}
