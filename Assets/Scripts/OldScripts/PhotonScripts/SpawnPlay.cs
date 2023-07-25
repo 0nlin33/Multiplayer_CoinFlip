@@ -9,9 +9,10 @@ public class SpawnPlay : MonoBehaviour
 
     public GameObject CoinSpawned;
 
+
     private void Start()
     {
-        Vector3 randomPos = new Vector3(0,0,175);
+        Vector3 randomPos = new Vector3(0, 0, 175);
         CoinSpawned = PhotonNetwork.Instantiate(play.name, randomPos, Quaternion.identity);
     }
 

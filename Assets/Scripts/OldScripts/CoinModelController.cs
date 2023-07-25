@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
 
 public class CoinModelController : MonoBehaviour
 {
@@ -9,9 +8,28 @@ public class CoinModelController : MonoBehaviour
     private bool isRotating = false;
     private float rotatingSpeed = 150f;
 
+    private static CoinModelController instance;
+
+    public static CoinModelController Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindObjectOfType<CoinModelController>();
+                if (instance == null)
+                {
+                    GameObject singletonObject = new GameObject("CoinModelController");
+                    instance = singletonObject.AddComponent<CoinModelController>();
+                }
+            }
+
+            return instance;
+        }
+    }
+
     public void StartRotation(float targetAngle)
     {
-        // Ensure the rotation is stopped before starting a new rotation
         if (!isRotating)
         {
             StartCoroutine(RotateToTargetAngle(targetAngle));
@@ -32,3 +50,4 @@ public class CoinModelController : MonoBehaviour
         isRotating = false;
     }
 }
+

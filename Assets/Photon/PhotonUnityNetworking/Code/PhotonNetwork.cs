@@ -3307,7 +3307,12 @@ namespace Photon.Pun
             }
         }
 
-        #endif
+        public static void Spawn(GameObject coinObjet)
+        {
+            throw new NotImplementedException();
+        }
+
+#endif
 
     }
 }
