@@ -14,8 +14,8 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
     public void CreateRoom()
     {
        // search = 0;
-        PlayerPrefs.SetInt("search", 0);
-        PhotonNetwork.CreateRoom(createInput.text);
+       //PlayerPrefs.SetInt("search", 0);
+        PhotonNetwork.CreateRoom(createInput.text); 
     }
 
     public void JoinRoom()

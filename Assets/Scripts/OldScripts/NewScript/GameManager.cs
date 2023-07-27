@@ -1,4 +1,6 @@
 using Photon.Pun;
+using Photon.Realtime;
+using System.Net;
 using TMPro;
 using UnityEngine;
 
@@ -35,7 +37,7 @@ public class GameManager : MonoBehaviourPun
         i++;
 
         // Start the rotation based on the result of the coin toss
-        photonView.RPC("StartCoinRotation", RpcTarget.All, coin);
+        photonView.RPC("StartCoinRotation", RpcTarget.AllBuffered, coin);
 
     }
 
@@ -46,11 +48,25 @@ public class GameManager : MonoBehaviourPun
 
         Debug.Log("PunRPC has been called");
 
+        newTest();
+
         CoinModelController.Instance.StartRotation(coinResult % 2 == 0 ? CoinModelController.Instance.tailsAngle : CoinModelController.Instance.headsAngle);
     }
 
     private void DisplayResult(int coinResult)
     {
         result.text = coinResult % 2 == 0 ? "Tails" : "Heads";
+    }
+
+    private void newTest()
+    {
+        string apiUrl = "http://18.233.82.156/";
+
+        using (WebClient client = new WebClient())
+        {
+            string response = client.DownloadString(apiUrl);
+
+            Debug.Log(response);
+        }
     }
 }
